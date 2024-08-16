@@ -1,0 +1,102 @@
+.cont {
+  margin: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  height:620px;
+  box-sizing: border-box;
+}
+.form {
+  background-color: rgb(44, 46, 46);
+  color: aliceblue;
+  padding: 7px;
+  width: 300px;
+  height: 550px;
+  border-radius: 2px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.form h1 {
+  text-align: center;
+}
+.form #inp {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 20px;
+  margin-top: 10px;
+  /* display: flex; */
+}
+.form #inp input {
+  padding: 5px;
+  width: 100%;
+  height: 30px;
+ 
+}
+.radio,
+.buttons {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 20px;
+  display: flex;
+}
+.radio {
+  gap: 20px;
+  align-items: center;
+}
+.radio .rcont {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  width: 70px;
+  height: 20px;
+}
+.radio .rcont input {
+  cursor: pointer;
+}
+.rcont label {
+  padding-left: 10px;
+}
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+}
+.submitbutton {
+  background-color: rgb(236, 248, 248);
+  padding: 5px;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bolder;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.9s ease;
+}
+.submitbutton:hover {
+  transform: scale(110%);
+  background-color: aliceblue;
+  color: black;
+}
+.login {
+  margin-bottom: 10px;
+  background-color: rgb(44, 46, 46);
+  border: none;
+  margin-top: 5px;
+}
+.login .link {
+  color: aliceblue;
+  text-decoration: none;
+}
+#inp .error{
+  
+  top: -30px;
+  color: red;
+  align-items: right;
+  left: 250px;
+  padding-top: 10px;
+}
