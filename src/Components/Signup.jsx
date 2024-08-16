@@ -2,9 +2,10 @@ import React from "react";
 import "./Signup.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import {SignupService } from "../services/SignupService";
 const Signup = () => {
 
-  const [formData, setFormData] = useState({
+  let [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
     email: "",
@@ -59,7 +60,18 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const categoryId=1;
+    const categoryName=formData.firstname;
+    const employee = { categoryId,categoryName };
     if (validate()) {
+      SignupService(employee)
+      .then((response) => {
+        console.log('Employee added:', response.data);
+        // Optionally, refresh the table data here.
+      })
+      .catch((error) => {
+        console.error('Error adding employee:', error);
+      });
       alert("Registered successfully");
     
       console.log("Data saved to local storage");
