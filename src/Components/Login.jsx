@@ -34,11 +34,11 @@ const Login = () => {
     if (filtered) {
       setEmail(filtered.email);
       setPassword(filtered.password);
-      return true; // Return true if a matching user was found
+      return true; 
     } else {
       setEmail('');
       setPassword('');
-      return false; // Return false if no matching user was found
+      return false; 
     }
   };
 
