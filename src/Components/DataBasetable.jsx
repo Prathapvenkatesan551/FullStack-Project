@@ -23,6 +23,11 @@ export const DataBasetable = () => {
           <tr>
             <th>Employee Id</th>
             <th>Employee Name</th>
+            <th>Employee Name</th>
+            <th>Email</th>
+            <th>mobile Number</th>
+            <th>password</th>
+            <th>Account Type</th>
           </tr>
         </thead>
         <tbody>
@@ -30,6 +35,10 @@ export const DataBasetable = () => {
             <tr key={employee.categoryId || index}>
               <td>{employee.categoryId}</td>
               <td>{employee.categoryName}</td>
+              <td>{employee.email}</td>
+              <td>{employee.mobileNumber}</td>
+              <td>{employee.password}</td>
+              <td>{employee.account}</td>
             </tr>
           ))}
         </tbody>

@@ -62,7 +62,11 @@ const Signup = () => {
     e.preventDefault();
     const categoryId=1;
     const categoryName=formData.firstname;
-    const employee = { categoryId,categoryName };
+    const email=formData.email;
+    const mobileNumber=formData.mobilenumber;
+    const password=formData.password;
+    const account=formData.account;
+    const employee = { categoryId,categoryName ,email , mobileNumber,password,account };
     if (validate()) {
       SignupService(employee)
       .then((response) => {
