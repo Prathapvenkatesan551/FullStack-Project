@@ -54,7 +54,8 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (filterByDomain() && validate()) {
-      alert("Login successful");
+      // alert("Login successful");
+      window.location.href = "/Home";
     } else {
       alert("Invalid email or password");
     }

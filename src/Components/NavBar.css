@@ -32,7 +32,7 @@
     padding: 10px;
     border-radius: 10px;
     font-size: 20px;
-    border: none;
+    border: 2px solid rgb(160, 152, 152);
     transition: transform 0.90s ease, background-color 0.90s ease, color 0.90s ease;
 }
 
@@ -46,7 +46,10 @@
 }
 .Nav button:hover .link{
     transform: scale(110%);
-    background-color: aliceblue;
+    background-color: rgb(191, 198, 204);
     color: black;
     
+}
+.NrightMain Link{
+    /* border: 2px solid white; */
 }

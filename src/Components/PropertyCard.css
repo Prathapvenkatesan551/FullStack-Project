@@ -93,3 +93,102 @@ transition-duration: 0.50s;
     transform: scale(110%);
     background-color: rgb(74, 195, 157);
 }
+table{
+    color: rgb(12, 12, 12);
+}
+
+.modal-overlay .modal-content{
+    background-color: rgb(44, 46, 46);
+   display: flex;
+   flex-direction: column;
+   gap: 50px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+  }
+  
+  table tr {
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  table tr:nth-child(even) {
+    background-color: #fff;
+  }
+  
+  table td {
+    padding: 12px 15px;
+    border-right: 1px solid #ddd;
+    font-size: 25px;
+  }
+  
+  table td:last-child {
+    border-right: none; /* Remove the border from the last cell in each row */
+  }
+  
+  table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  table td:first-child {
+    font-weight: bold;
+  }
+  .modal-content{
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+  .Booking{
+    padding: 10px;
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    background-color: aquamarine;
+    font-size: 20px;
+  }
+  .delete , .update{
+    padding: 10px;
+    width: 200px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .delete{
+    background-color: rgb(211, 87, 87);
+  }
+  .update{
+    background-color: aquamarine;
+  }
+  .save{
+    width: 200px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: aquamarine;
+    cursor: pointer;
+  
+  }
+  .modal-overlay .Pheading{
+    color: #ddd;
+  }
+  .close-pop{
+    background-color: #f1f1f1;
+    padding: 5px;
+    width: 100px;
+    height: 40px;
+    border: none;
+    background-color: rgb(190, 59, 59);
+    border-radius: 5px;
+    color: #f1f1f1;
+    font-size: 20px;
+    cursor: pointer;
+
+  }

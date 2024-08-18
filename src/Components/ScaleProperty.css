@@ -1,0 +1,126 @@
+.Scont{
+    margin: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Sform{
+    background-color: rgb(44, 46, 46);
+    width: 100%;
+    
+    height: 700px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: aliceblue;
+    border-radius: 5px;
+    
+
+}
+.Sform input , textarea{
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+   box-sizing: border-box;
+   padding: 5px;
+}
+.Sform button{
+    padding: 10px;
+    width: 80%;
+    height: 40px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: aquamarine;
+    transition-duration: 0.50s;
+
+}
+.Sform button:hover{
+    transform: scale(110%);
+    background-color: rgb(74, 195, 157);
+}
+.error{
+    color: brown;
+    margin-left: 600px;
+}
+@media screen and (min-width: 665px) {
+    .Sform {
+        width: 50%;
+    }
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      
+    
+    }
+    html ,body,#root{
+      width: 100%;
+      height: 100%;
+    }
+}
+
+/* Modal overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent background color */
+  backdrop-filter: blur(10px); /* Adjust the blur amount */
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+  
+  /* Modal content */
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    height: 700px;
+    max-width: 900px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Close button */
+  .close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: transparent;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+ .Pheading{
+    color: black;
+  }
+  .popupForm{
+    background-color: rgb(44, 46, 46);
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    gap: 30px;
+    padding: 20px;
+    
+  }
+  .popupForm .inp{
+    display: flex;
+    flex-direction: column;
+  }
+  .popupForm .inp input{
+    padding: 5px;
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+  }

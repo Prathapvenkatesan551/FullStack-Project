@@ -79,7 +79,7 @@ const Signup = () => {
       alert("Registered successfully");
     
       console.log("Data saved to local storage");
-      window.location.href = "/DB";
+      window.location.href = "/Login";
     }
     else{
       alert("Enter valid Details");
