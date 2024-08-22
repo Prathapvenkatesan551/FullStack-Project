@@ -341,5 +341,44 @@ export const MyProperty = () => {
     </div>
   );
 };
+export const FilterProperty = ({ placeF, roomF }) => {
+  const [properties, setProperties] = useState([]);
+
+  useEffect(() => {
+    GetProperties()
+      .then((response) => {
+        setProperties(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching property data:", error);
+      });
+  }, []);
+  const filteredProperties = properties.filter((product) => {
+    const matchesPlace = placeF === "None" || product.place.toLowerCase().includes(placeF.toLowerCase());
+    const matchesRoom = roomF === "None" || product.numberOfRooms.toString() === roomF;
+    return matchesPlace && matchesRoom;
+  });
+
+  return (
+    <div className="Products">
+      {filteredProperties.map((product, index) => (
+        <User
+          key={index}
+          place={product.place}
+          area={product.area}
+          roomCount={product.numberOfRooms}
+          nearByLocation={product.location}
+          sellerName={product.sellerName}
+          propertyId={product.propertyId}
+          sellerEmail={product.sellerEmail}
+          sellerMobile={product.sellerMobileNumber}
+          sellerAddress={product.sellerAddress}
+          cost={product.Cost}
+        />
+      ))}
+    </div>
+  );
+};
+
 
 export default User;
