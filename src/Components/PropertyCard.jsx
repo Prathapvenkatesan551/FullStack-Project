@@ -82,9 +82,9 @@ function User({
       });
   };
 
-  const handleBooking=()=>{
-    window.location.href = '/Booking';
-  }
+  const handleBooking = () => {
+    window.location.href = "/Booking";
+  };
   return (
     <div className="card">
       <div className="card-items">
@@ -95,7 +95,7 @@ function User({
         <div className="image-div">
           <div className="part1">
             <img
-              src="https://content.knightfrank.com/blog/2023/1/dcc9087d-9130-4720-9769-9e838fd4cd29/atlantiche.jpg"
+              src="https://housing-images.n7net.in/012c1500/a7154441dcc516d2ade3afa03e15a1bf/v0/fs.jpeg"
               alt=""
               className="Hall"
             />
@@ -103,24 +103,24 @@ function User({
           <div className="Part2M">
             <div className="part2">
               <img
-                src="https://i2-prod.mylondon.news/incoming/article23105130.ece/ALTERNATES/s1200d/168289_WHotel-203000-London_IMG_05_0000jpeg.jpg"
+                src="https://housing-images.n7net.in/012c1500/981f687a020c2e7a4c78a16271d9f68e/v0/fs.jpeg"
                 alt="property"
                 className="bedRoom"
               />
               <img
-                src="https://media.cntraveler.com/photos/552297f296bfd1f1482d9475/master/pass/shangrilasuite-london.jpg"
+                src="https://housing-images.n7net.in/012c1500/6b405a1dc137edcdd963b61bb753d9a7/v0/fs.jpeg"
                 alt="property"
                 className="bedRoom"
               />
             </div>
             <div className="part2">
               <img
-                src="https://i2-prod.mylondon.news/incoming/article23105130.ece/ALTERNATES/s1200d/168289_WHotel-203000-London_IMG_05_0000jpeg.jpg"
+                src="https://housing-images.n7net.in/012c1500/725d83b5fbee632d9f39b372bf12df79/v0/fs.jpeg"
                 alt="property"
                 className="bedRoom"
               />
               <img
-                src="https://media.cntraveler.com/photos/552297f296bfd1f1482d9475/master/pass/shangrilasuite-london.jpg"
+                src="https://housing-images.n7net.in/01c16c28/0e493b0af5f323e7bb223cf6863f7e86/v0/fs/2_bhk_independent_house-for-sale-veppampattu-Chennai-bathroom.jpg"
                 alt="property"
                 className="bedRoom"
               />
@@ -140,9 +140,15 @@ function User({
             </button>
           )}
           {isSalePage && (
-            <button onClick={() => handleDelete(propertyId)} className="delete">Delete</button>
+            <button onClick={() => handleDelete(propertyId)} className="delete">
+              Delete
+            </button>
           )}
-          {isSalePage && <button onClick={handleUpdate} className="update">Update</button>}
+          {isSalePage && (
+            <button onClick={handleUpdate} className="update">
+              Update
+            </button>
+          )}
         </div>
       </div>
 
@@ -192,7 +198,9 @@ function User({
                   onChange={(e) => setUpdatedNearbyLocation(e.target.value)}
                 />
               </div>
-              <button type="submit" className="save">Save Changes</button>
+              <button type="submit" className="save">
+                Save Changes
+              </button>
             </form>
           </div>
         </div>
@@ -202,8 +210,11 @@ function User({
       {isDetailModalOpen && (
         <div className="modal-overlay">
           <div className="modal-content">
-            
-            <h2 className="Pheading">Property Owner  Details</h2>
+            <h2 className="Pheading">Property Owner Details</h2>
+            <div className="sliders">
+              <Slideshow/>
+              <label htmlFor="">hekllo</label>
+            </div>
             <table>
               <tr>
                 <td>Seller Name</td>
@@ -258,7 +269,9 @@ function User({
               </tr>
             </table>
 
-            <button className="Booking" onClick={handleBooking}>Book Now</button>
+            <button className="Booking" onClick={handleBooking}>
+              Book Now
+            </button>
             <button className="close-pop" onClick={closeDetailModal}>
               Close
             </button>
@@ -354,8 +367,11 @@ export const FilterProperty = ({ placeF, roomF }) => {
       });
   }, []);
   const filteredProperties = properties.filter((product) => {
-    const matchesPlace = placeF === "None" || product.place.toLowerCase().includes(placeF.toLowerCase());
-    const matchesRoom = roomF === "None" || product.numberOfRooms.toString() === roomF;
+    const matchesPlace =
+      placeF === "None" ||
+      product.place.toLowerCase().includes(placeF.toLowerCase());
+    const matchesRoom =
+      roomF === "None" || product.numberOfRooms.toString() === roomF;
     return matchesPlace && matchesRoom;
   });
 
@@ -381,4 +397,39 @@ export const FilterProperty = ({ placeF, roomF }) => {
 };
 
 
+
+export const Slideshow = () => {
+  const images = [
+    'https://housing-images.n7net.in/01c16c28/7f88a990183f90510b5fd5b391d99443/v0/fs/2_bhk_independent_house-for-sale-veppampattu-Chennai-hall.jpg',
+    'https://housing-images.n7net.in/012c1500/6b405a1dc137edcdd963b61bb753d9a7/v0/fs.jpeg',
+    'https://housing-images.n7net.in/012c1500/725d83b5fbee632d9f39b372bf12df79/v0/fs.jpeg',
+    'https://housing-images.n7net.in/01c16c28/8d22cf77bd392d2cec912501c26b857d/v0/fs/2_bhk_independent_house-for-sale-veppampattu-Chennai-others.jpg',
+    'https://housing-images.n7net.in/01c16c28/0e493b0af5f323e7bb223cf6863f7e86/v0/fs/2_bhk_independent_house-for-sale-veppampattu-Chennai-bathroom.jpg'
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 10000); // Change image every 3 seconds
+
+    return () => clearInterval(interval); // Cleanup interval on component unmount
+  }, [images.length]);
+
+  return (
+    <div className="slideshow-container">
+      <img src={images[currentIndex]} alt={`Slide ${currentIndex + 1}`} className="slideshow-image" />
+      <div className="slideshow-indicators">
+        {images.map((_, index) => (
+          <span
+            key={index}
+            className={`indicator ${index === currentIndex ? 'active' : ''}`}
+            onClick={() => setCurrentIndex(index)}
+          ></span>
+        ))}
+      </div>
+    </div>
+  );
+};
 export default User;

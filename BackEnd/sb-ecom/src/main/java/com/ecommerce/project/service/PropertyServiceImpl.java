@@ -13,7 +13,6 @@ import java.util.Optional;
 public class PropertyServiceImpl implements PropertyService {
 
     private final PropertyRepository propertyRepository;
-    private Long nextId = 1L;  // Not really needed if you use @GeneratedValue in Property
 
     public PropertyServiceImpl(PropertyRepository propertyRepository) {
         this.propertyRepository = propertyRepository;
@@ -26,7 +25,7 @@ public class PropertyServiceImpl implements PropertyService {
 
     @Override
     public void createProperty(Property property) {
-        propertyRepository.save(property);  // propertyId is auto-generated, no need to manually set it
+        propertyRepository.save(property);
     }
 
     @Override
@@ -35,16 +34,16 @@ public class PropertyServiceImpl implements PropertyService {
 
         if (propertyOptional.isPresent()) {
             propertyRepository.deleteById(propertyId);
-            return "Property with propertyId: " + propertyId + " deleted successfully !!";
+            return "Property with ID " + propertyId + " deleted successfully.";
         } else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Property not found");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Property with ID " + propertyId + " not found.");
         }
     }
 
     @Override
     public Property updateProperty(Property property, Long propertyId) {
         Property existingProperty = propertyRepository.findById(propertyId)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Property not found"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Property with ID " + propertyId + " not found."));
 
         // Update the existing property with the new values
         existingProperty.setPlace(property.getPlace());
@@ -53,10 +52,23 @@ public class PropertyServiceImpl implements PropertyService {
         existingProperty.setNumberOfRooms(property.getNumberOfRooms());
         existingProperty.setSellerName(property.getSellerName());
         existingProperty.setSellerEmail(property.getSellerEmail());
-        existingProperty.setSellerAddress(property.getSellerAddress());
         existingProperty.setSellerMobileNumber(property.getSellerMobileNumber());
+        existingProperty.setSellerAddress(property.getSellerAddress());
         existingProperty.setCost(property.getCost());
 
+        // Update image paths if provided
+        existingProperty.setPhoto1(property.getPhoto1() != null ? property.getPhoto1() : existingProperty.getPhoto1());
+        existingProperty.setPhoto2(property.getPhoto2() != null ? property.getPhoto2() : existingProperty.getPhoto2());
+        existingProperty.setPhoto3(property.getPhoto3() != null ? property.getPhoto3() : existingProperty.getPhoto3());
+        existingProperty.setPhoto4(property.getPhoto4() != null ? property.getPhoto4() : existingProperty.getPhoto4());
+        existingProperty.setPhoto5(property.getPhoto5() != null ? property.getPhoto5() : existingProperty.getPhoto5());
+
         return propertyRepository.save(existingProperty);
+    }
+
+    @Override
+    public Property getPropertyById(Long propertyId) {
+        return propertyRepository.findById(propertyId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Property with ID " + propertyId + " not found."));
     }
 }
