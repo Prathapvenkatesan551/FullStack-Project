@@ -95,7 +95,7 @@ function User({
         <div className="image-div">
           <div className="part1">
             <img
-              src="https://housing-images.n7net.in/012c1500/a7154441dcc516d2ade3afa03e15a1bf/v0/fs.jpeg"
+              src="https://housing-images.n7net.in/01c16c28/8d22cf77bd392d2cec912501c26b857d/v0/fs/2_bhk_independent_house-for-sale-veppampattu-Chennai-others.jpg"
               alt=""
               className="Hall"
             />
@@ -400,7 +400,7 @@ export const FilterProperty = ({ placeF, roomF }) => {
 
 export const Slideshow = () => {
   const images = [
-    'https://housing-images.n7net.in/01c16c28/7f88a990183f90510b5fd5b391d99443/v0/fs/2_bhk_independent_house-for-sale-veppampattu-Chennai-hall.jpg',
+    'https://housing-images.n7net.in/01c16c28/8d22cf77bd392d2cec912501c26b857d/v0/fs/2_bhk_independent_house-for-sale-veppampattu-Chennai-others.jpg',
     'https://housing-images.n7net.in/012c1500/6b405a1dc137edcdd963b61bb753d9a7/v0/fs.jpeg',
     'https://housing-images.n7net.in/012c1500/725d83b5fbee632d9f39b372bf12df79/v0/fs.jpeg',
     'https://housing-images.n7net.in/01c16c28/8d22cf77bd392d2cec912501c26b857d/v0/fs/2_bhk_independent_house-for-sale-veppampattu-Chennai-others.jpg',
