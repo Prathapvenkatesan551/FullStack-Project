@@ -10,7 +10,7 @@ export const MailDetails = () => {
 
     emailjs
       .sendForm('service_an5ux35', 'template_w7zs4q5', form.current, {
-        publicKey: 'Cdo-vRrBr8Mf84E-A',
+        publicKey: 'NiAr67f53gBupPVfM',
       })
       .then(
         () => {

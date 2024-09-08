@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./PropertyCard.css";
+
 import {
   DeleteProperty,
   UpdateProperty,
   GetProperties,
+  UploadDp
 } from "../services/SignupService";
 import { useLocation } from "react-router-dom";
 
@@ -18,6 +20,7 @@ function User({
   sellerMobile,
   sellerAddress,
   cost,
+  image,
 }) {
   const location = useLocation();
   const isSalePage = location.pathname === "/ScaleProperty";
@@ -27,6 +30,7 @@ function User({
   const [updatedArea, setUpdatedArea] = useState(area);
   const [updatedRoomCount, setUpdatedRoomCount] = useState(roomCount);
   const [updatedNearbyLocation, setUpdatedNearbyLocation] =
+
     useState(nearByLocation);
 
   const handleDelete = (productId) => {
@@ -69,8 +73,10 @@ function User({
       sellerMobileNumber: sellerMobile,
       sellerAddress: sellerAddress,
       Cost: cost,
+      image:selectedImage
+      
     };
-
+    // console.log(image);
     UpdateProperty(propertyId, Uproperty)
       .then((response) => {
         console.log("Property updated successfully:", response.data);
@@ -85,11 +91,32 @@ function User({
   const handleBooking = () => {
     window.location.href = "/Booking";
   };
+
+
+  const [selectedImage, setSelectedImage] = useState(null); // State to handle selected image
+  const [dp,setdp]=useState("");
+  const uploadImage = () => {
+    if (selectedImage) {
+      UploadDp(propertyId, selectedImage)
+        .then((response) => {
+          console.log("Image uploaded successfully", response.data);
+          
+          // Handle any additional logic after successful upload
+        })
+        .catch((error) => {
+          console.error("Error uploading image:", error);
+        });
+    } else {
+      console.log("No image selected");
+    }
+  };
+
   return (
     <div className="card">
       <div className="card-items">
         <div className="profile">
-          <img src="prathap.jpg" alt="" className="Dp" />
+        <img src={`../BackEnd/images/${dp}`} alt="" className="Dp" />
+
           <h3 className="ProfileName">{sellerName}</h3>
         </div>
         <div className="image-div">
@@ -197,11 +224,24 @@ function User({
                   value={updatedNearbyLocation}
                   onChange={(e) => setUpdatedNearbyLocation(e.target.value)}
                 />
+                
               </div>
+              
               <button type="submit" className="save">
                 Save Changes
               </button>
             </form>
+
+            <div className="DpUpload">
+      <label htmlFor="imageInput">Select an image:</label>
+      <input
+        type="file"
+        id="imageInput"
+        accept="image/*"
+        onChange={(e) => setSelectedImage(e.target.files[0])}
+      />
+      <button onClick={uploadImage}>Save</button>
+    </div>
           </div>
         </div>
       )}
@@ -309,6 +349,7 @@ export const PropertyCard = () => {
           sellerMobile={product.sellerMobileNumber}
           sellerAddress={product.sellerAddress}
           cost={product.Cost}
+          image={product.image}
         />
       ))}
     </div>
