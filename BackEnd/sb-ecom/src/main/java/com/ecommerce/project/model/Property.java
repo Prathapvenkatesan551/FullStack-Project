@@ -40,4 +40,5 @@ public class Property {
     @NotNull
     private long Cost;
 
+    private String image;
 }

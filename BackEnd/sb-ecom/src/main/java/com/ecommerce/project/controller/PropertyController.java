@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
+import java.io.IOException;
 import java.util.List;
 
 //@CrossOrigin("*")
@@ -52,5 +54,12 @@ public class PropertyController {
         } catch (ResponseStatusException e) {
             return new ResponseEntity<>(e.getReason(), e.getStatusCode());
         }
+    }
+
+    @PutMapping("/public/{propertyId}/image")
+    public ResponseEntity<Property> updateImage(@PathVariable long propertyId
+                                            , @RequestParam("image")MultipartFile image) throws IOException {
+        Property updateProperty=propertyService.updateImage(propertyId,image);
+        return new ResponseEntity<>(updateProperty,HttpStatus.OK);
     }
 }
